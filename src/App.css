@@ -1,0 +1,40 @@
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #43996a;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #43996a;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #43996a;
+}
+
+/* Hide scrollbar arrows (for some browsers) */
+::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #43996a #f1f1f1;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
