@@ -72,15 +72,14 @@ const CameraFeedCard = ({ id }: CameraFeedCardProps) => {
 
 
   return (
-    <div className="relative">
-      {/* Toggle Auto Scroll */}
-      <div className="flex justify-end">
-        <Switch checked={autoScroll} onChange={onChange}  /> <span className="font-semibold ml-4">{autoScroll ? "Stop Auto Scroll" : "Start Auto Scroll"}</span>
-      </div>
-
+    <div className="relative ">
+ 
       {/* Scrollable Image Cards */}
-      <div ref={scrollContainerRef} className="flex w-full gap-4 overflow-x-auto whitespace-nowrap flex-nowrap py-4 scrollbar-hide">
-      {data && Object.values(data.streams).map((item, index) => (
+      <div ref={scrollContainerRef} className="flex w-full gap-2 overflow-x-auto whitespace-nowrap flex-nowrap py-4 scrollbar-hide ">
+
+      {data  ? 
+      
+      Object.values(data.streams).map((item, index) => (
             <div
               key={index}
               className="relative w-80 h-60 flex-shrink-0 cursor-pointer shadow-lg"
@@ -106,11 +105,20 @@ const CameraFeedCard = ({ id }: CameraFeedCardProps) => {
         onError={() => setLoading(false)} // Optional: handle image load error too
       />
             </div>
-          ))}
+          )) :
+          <div className="flex flex-wrap w-full gap-4 justify-center">
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md">No data</div>
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md">No data</div>
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md" >No data</div>
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md">No data</div>
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md">No data</div>
+            <div className="bg-white h-60 w-[32%] rounded-sm shadow-md" >No data</div>
+          </div>
+          
+          }
 
       </div>
 
-      {/* Image Preview Modal */}
       {previewImage && (
         <div className="fixed inset-0 bg-[#000000d1] flex items-center justify-center z-50">
           <div className="relative">

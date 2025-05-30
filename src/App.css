@@ -38,3 +38,23 @@
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
 }
+
+
+
+/* side nav */
+
+.custom-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  background-color: #06175d !important; /* Tailwind blue-600 */
+  color: white !important;
+}
+.custom-menu .ant-menu-item-selected {
+  background-color: #43996a !important; /* Tailwind emerald-900 */
+  color: #fcfcfc !important; /* Tailwind green-500 */
+  font-weight: 600  ;
+}
+ .ant-menu .ant-menu-sub {
+    padding-left: 2rem !important;
+    box-shadow: none !important;
+}
+
+
