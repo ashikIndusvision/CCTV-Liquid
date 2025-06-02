@@ -4,31 +4,37 @@ import MainContent from "../Common/Maincontent";
 import Sidenav from "../Common/Sidenav";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../API/Api";
+import response from "../../../dummy-data/sectionata.js";
 
 const DashboardLayout = () => {
+  const [sectionsData, setSectionsData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-const [sectionsData , setSectionsData]= useState([])
+  // HIT SECTIONS AND OPTIONS API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const url = "seracs/";
+        const response = await axiosInstance.get(url);
+        setSectionsData(response.data);
+      } catch (error) {
+        console.log(error);
+        // setSectionsData(response?.results);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
-// HIT SECTIONS AND OPTIONS API
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const url = "/";
-      const response = await axiosInstance.get(url);
-      console.log(response);
-      setSectionsData(response.data)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  fetchData();
-}, []);
 
   return (
     <>
       <Header />
+      
       <div className="flex justify-between">
-        <Sidenav sectionsData = {sectionsData} />
+        <Sidenav sectionsData={sectionsData} loading={loading}  />
         <MainContent>
           <Outlet />
         </MainContent>

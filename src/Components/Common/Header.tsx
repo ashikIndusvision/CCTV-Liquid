@@ -3,6 +3,8 @@ import { useTheme } from '../../Context/ThemeContext';
 
 import content from '../../Config/Content';
 import { LogOut } from 'lucide-react';
+import indusVisionlogo from '../../assets/indus_logo.png';
+import hulLogo from '../../assets/hul_logo.png';
 
 
 
@@ -13,7 +15,7 @@ const { themeStyles } = useTheme();
     <header className={`w-full fixed top-0 left-0 right-0  border-b shadow-sm z-10 ${themeStyles.primary} ${themeStyles.text}`}>
     <div className="flex h-full ">
       <div className=" font-semibold text-4xl  w-[17%] justify-center  flex border-r-2   ">
-        <img src={content.headerContent.headerIndusVisionLogo} width="50%" height="50%" alt="Error Loading Image" className='object-contain' />
+        <img src={indusVisionlogo} width="50%" height="50%" alt="Error Loading Image" className='object-contain' />
       </div>
       <div className="flex items-center  justify-start py-2  w-[84%]">
        {/* <ThemeToggle/> */}
@@ -23,7 +25,7 @@ const { themeStyles } = useTheme();
         </button> */}
 <div className="flex justify-center items-center gap-1">
     <span className={   `${themeStyles.tertiary} flex justify-center items-center w-[30%]  rounded-sm`}>
-        <img src={content.headerContent.ClientLogo} alt="Not an image" width="40%" height="auto" className='object-contain'  />
+        <img src={hulLogo} alt="Not an image" width="40%" height="auto" className='object-contain'  />
     </span>
         <span className='font-bold text-2xl'>{content.headerContent.ClientText}</span>
 </div>

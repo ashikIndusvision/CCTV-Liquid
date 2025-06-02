@@ -1,17 +1,19 @@
-import './App.css'
-import { RouterProvider } from 'react-router-dom'
-import router from './routes'
-import { ThemeProvider } from './Context/ThemeContext'
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+import { ThemeProvider } from "./Context/ThemeContext";
+import { CameraProvider } from "./Context/SectionactiveContext";
 
 function App() {
-
   return (
     <>
-    <ThemeProvider>
-    <RouterProvider router={router} />
-    </ThemeProvider>
+      <ThemeProvider>
+        <CameraProvider>
+          <RouterProvider router={router} />
+        </CameraProvider>
+      </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
